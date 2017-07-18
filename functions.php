@@ -636,7 +636,21 @@ function create_manufacturer_tax() {
 		'product',
 		array(
 			'label' => __( 'Manufacturer' ),
-			'rewrite' => array( 'slug' => 'product' ),
+			'rewrite' => array( 'slug' => 'manufacturer' ),
+			'hierarchical' => true,
+		)
+	);
+}
+
+add_action( 'init', 'create_product_category_tax' );
+
+function create_product_category_tax() {
+	register_taxonomy(
+		'product-category',
+		'product',
+		array(
+			'label' => __( 'Product category' ),
+			'rewrite' => array( 'slug' => 'product-category' ),
 			'hierarchical' => true,
 		)
 	);

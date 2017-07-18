@@ -802,9 +802,10 @@ footer {
 	}
 	li {
 		font-size: 12px;
-		span {
+		a {
 			position: relative;
 			left: -7px;
+			color: #000;
 		}
 		text-transform: uppercase;
 	}
