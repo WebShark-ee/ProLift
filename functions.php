@@ -656,7 +656,19 @@ function create_product_category_tax() {
 	);
 }
 
-add_filter( 'get_search_form', 'pictorico_custom_searchform', 10 );
+
+function header_custom_searchform( $form ) {
+	$form = 
+	'<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+		<svg class="icon icon-search" aria-hidden="true" role="img">
+			<use href="#icon-search" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+		</svg>
+		<input type="search" class="search-field" placeholder="OTSING..." value="' . get_search_query() . '" name="s">
+		<input type="hidden" name="post_type" value="page" />
+		<span class="screen-reader-text">Search</span>
+	</form>';
+return $form;
+}
 
 function pictorico_custom_searchform( $form ) {
 $form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
@@ -665,6 +677,32 @@ $form = '<form role="search" method="get" class="search-form" action="' . esc_ur
 			<input type="search" class="search-field" placeholder="otsing..." value="' . get_search_query() . '" name="s" />
 		</label>
 		<input type="submit" class="search-submit" value="'. esc_attr_x( 'Search', 'submit button' ) .'" />
+		<input type="hidden" name="post_type" value="product" />
 	</form>';
 return $form;
 }
+
+function template_chooser($template)   
+{    
+    global $wp_query;   
+    $post_type = get_query_var('post_type');   
+    if( $wp_query->is_search && $post_type == 'product' )   
+    {
+        return locate_template('taxonomy-product-category.php');
+    }   
+    return $template;
+}
+add_filter('template_include', 'template_chooser');
+
+function mySearchFilter($query) {
+    $post_type = $_GET['post_type'];
+    if (!$post_type) {
+        $post_type = 'any';
+    }
+    if ($query->is_search) {
+        $query->set('post_type', $post_type);
+    };
+    return $query;
+};
+
+add_filter('pre_get_posts','mySearchFilter');

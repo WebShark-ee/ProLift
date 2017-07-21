@@ -6,6 +6,7 @@ html, body {
 }
 .entry-content {
 	h2 {
+		text-transform: none !important;
 		margin-top: 50px;
 		margin-bottom: 50px;
 		font-size: 24px;
@@ -14,13 +15,21 @@ html, body {
 		}
 	}
 }
-article {
-	.container {
-		padding-bottom: 40px;
+.float-right {
+	overflow: hidden;
+	@media (min-width: 768px) {
+		float: right;
+	}
+	.navbar-collapse {
+		margin-right: -15px;
+		margin-left: -15px;
 		@media (min-width: 768px) {
-			padding-bottom: 80px;
+			margin-right: 0;
+			margin-left: 0;
 		}
 	}
+}
+article {
 	ul {
 		list-style: none;
 		padding: 0;
@@ -40,6 +49,18 @@ article {
 	}
 	p {
 		margin: 0;
+	}
+	p + p {
+		margin-top: 20px !important;
+	}
+	ul + p {
+		margin-top: 20px !important;
+	}
+	p + ul {
+		margin-top: 20px !important;
+	}
+	h2:first-child + p {
+		margin-top: 40px !important;
 	}
 }
 .single-featured-image-header {
@@ -140,6 +161,69 @@ article {
 	display: none !important;
 }
 header {
+	.navbar-collapse {
+		@media (min-width: 768px) {
+			float: left;
+		}
+	}
+	.search-container {
+		@media (min-width: 768px) {
+			float: right;
+		}
+	}
+	.search-form {
+		@media (min-width: 768px) {
+			padding-top: 15px;
+		}
+		position: relative;
+		.search-field {
+			background-color: transparent;
+			height: 22px;
+			padding: 0 0 0 22px;
+			position: relative;
+			-webkit-transition: all 400ms ease;
+			transition:         all 400ms ease;
+			border: 1px solid #555;
+			cursor: text;
+			outline: 0;
+			width: 128px;
+			padding: 0 5px;
+			
+			font-size: 13px;
+			font-family: "Open Sans", sans-serif;
+			font-weight: 700;
+			@media (min-width: 768px) {
+				width: 22px;
+				cursor: pointer;
+				border: none;
+				padding: 0 0 0 22px;
+				margin: -1px 0 0 0;
+			}
+		}
+		.search-field:focus {
+			border: 1px solid #555;
+			cursor: text;
+			outline: 0;
+			width: 128px;
+			padding: 0 15px 0 5px;
+		}
+		input[type="search"] {
+		-webkit-appearance: textfield;
+		}
+		
+		.icon-search {
+			width: 13px;
+			height: 13px;
+			fill: #555;
+			position: absolute;
+			right: 5px;
+			bottom: 5px;
+			display: none;
+			@media (min-width: 768px) {
+				display: inline;
+			}
+		}
+	}
 	.carousel {
 		margin-top: 50px;
 		@media (min-width: 768px) {
@@ -260,7 +344,7 @@ header {
 					max-width: 175px;
 				}
 			}
-			.navbar-nav {
+			.navbar-nav, .search-form {
 				margin-top: 60px;
 				li {
 					a {
@@ -286,7 +370,11 @@ header {
 		li {
 			font-family: Lato, sans-serif;
 			font-size: 13px;
-			padding-left: 15px;
+			
+			padding: 15px;
+			@media (min-width: 768px) {
+				padding: 0 0 0 15px;
+			}
 		}
 		li + li {
 			@media (min-width: 768px) {
@@ -386,6 +474,7 @@ header {
 	text-transform: uppercase;
 }
 footer {
+	margin-top: 100px;
 	.row {
 		padding: 0;
 	}
@@ -628,11 +717,13 @@ footer {
 	h2 {
 		text-transform: uppercase;
 	}
-	main > .container {
-		padding-bottom: 100px;
-	}
+}
+.product + .product {
+	border-top-width: 0px;
 }
 .product {
+	border-top: 1px dotted #F00;
+	border-bottom: 1px dotted #F00;
 	h4 {
 		font-size: 19px;
 		font-weight: 600;
@@ -640,10 +731,6 @@ footer {
 	[class*='col-sm-'] {
 		padding-bottom: 10px;
 	}
-	&:first-child {
-		border-top: 1px dotted #F00;
-	}
-	border-bottom: 1px dotted #F00;
 	padding: 16px 0;
 	.gallery {
 		display: table;
@@ -710,6 +797,7 @@ footer {
 }
 .sidebar-products {
 	h2 {
+		text-transform: uppercase;
 		&:after {
 			content: "";
 			display: block;

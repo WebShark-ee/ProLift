@@ -22,20 +22,24 @@
 			</button>
 			<a class="navbar-brand" href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/images/logo.png"></a>
 		</div>
-	
-		<?php
-			wp_nav_menu( array(
-				'menu'              => 'top-menu',
-				'theme_location'    => 'top',
-				'depth'             => 2,
-				'container'         => 'div',
-				'container_class'   => 'collapse navbar-collapse',
-				'container_id'      => 'navbar',
-				'menu_class'        => 'nav navbar-nav navbar-right',
-				'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-				'walker'            => new WP_Bootstrap_Navwalker())
-			);
-		?>
+		
+		<div class="float-right">
+			
+			<?php
+				wp_nav_menu( array(
+					'menu'              => 'top-menu',
+					'theme_location'    => 'top',
+					'depth'             => 2,
+					'container'         => 'div',
+					'container_class'   => 'collapse navbar-collapse',
+					'container_id'      => 'navbar',
+					'menu_class'        => 'nav navbar-nav',
+					'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+					'walker'            => new WP_Bootstrap_Navwalker())
+				);
+			?>
+			<div class="search-container navbar-collapse collapse"><?php echo header_custom_searchform( $form ); ?></div>
+		</div>
 		
 		<div class="collapse navbar-collapse navbar-contact">
 			<ul class="nav navbar-nav navbar-right">
