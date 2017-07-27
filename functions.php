@@ -660,10 +660,12 @@ function create_product_category_tax() {
 function header_custom_searchform( $form ) {
 	$form = 
 	'<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+		<div class="search-field-wrapper">
+		<input type="search" onfocus="this.select();return true;" onmouseup="preventDefault();" class="search-field" placeholder="OTSING..." value="' . get_search_query() . '" name="s">
 		<svg class="icon icon-search" aria-hidden="true" role="img">
 			<use href="#icon-search" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
 		</svg>
-		<input type="search" class="search-field" placeholder="OTSING..." value="' . get_search_query() . '" name="s">
+		</div>
 		<input type="hidden" name="post_type" value="page" />
 		<span class="screen-reader-text">Search</span>
 	</form>';

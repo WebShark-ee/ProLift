@@ -12,14 +12,13 @@
 
 get_header(); ?>
 
-<div class="wrap" style="margin-top: 155px;">
+<div class="wrap">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<div class="container">
 				<div class="row">
 
 					<div class="col-md-9">
-						<h2>OTSINGUTULEMUSED</h2>
 						<?php
 					if ( have_posts() ) : ?>
 						<?php

@@ -13,9 +13,7 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php _e( 'Nothing Found', 'twentyseventeen' ); ?></h1>
-	</header>
+	<h2 class="page-title"><?php _e( 'Midagi ei leitud.', 'twentyseventeen' ); ?></h2>
 	<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
@@ -24,9 +22,8 @@
 
 		<?php else : ?>
 
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyseventeen' ); ?></p>
+			<p><?php _e( 'Selline toode puudub.', 'twentyseventeen' ); ?></p>
 			<?php
-				get_search_form();
 
 		endif; ?>
 	</div><!-- .page-content -->

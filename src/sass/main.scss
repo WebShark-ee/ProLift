@@ -4,6 +4,12 @@
 html, body {
 	font-family: Montserrat, sans-serif;
 }
+.site {
+	padding-top: 50px;
+	@media (min-width: 768px) {
+		padding-top: 135px;
+	}
+}
 .entry-content {
 	h2 {
 		text-transform: none !important;
@@ -106,10 +112,8 @@ article {
 			font-size: 8vw;
 		}
 	}
-	margin-top: 50px;
 	padding-bottom: 20px;
 	@media (min-width: 768px) {
-		margin-top: 135px;
 		padding-bottom: 45px;
 	}
 	img {
@@ -176,6 +180,9 @@ header {
 			padding-top: 15px;
 		}
 		position: relative;
+		.search-field-wrapper {
+			position: relative;
+		}
 		.search-field {
 			background-color: transparent;
 			height: 22px;
@@ -183,7 +190,8 @@ header {
 			position: relative;
 			-webkit-transition: all 400ms ease;
 			transition:         all 400ms ease;
-			border: 1px solid #555;
+			border: none;
+			border-bottom: 1px solid #999;
 			cursor: text;
 			outline: 0;
 			width: 128px;
@@ -201,7 +209,7 @@ header {
 			}
 		}
 		.search-field:focus {
-			border: 1px solid #555;
+			border-bottom: 1px solid #999;
 			cursor: text;
 			outline: 0;
 			width: 128px;
@@ -216,19 +224,17 @@ header {
 			height: 13px;
 			fill: #555;
 			position: absolute;
-			right: 5px;
 			bottom: 5px;
-			display: none;
+			left: 110px;
+			right: auto;
+			pointer-events: none;
 			@media (min-width: 768px) {
-				display: inline;
+				left: auto;
+				right: 5px;
 			}
 		}
 	}
 	.carousel {
-		margin-top: 50px;
-		@media (min-width: 768px) {
-			margin-top: 135px;
-		}
 		.btn {
 			padding: 7px 30px;
 			margin-bottom: 0;
